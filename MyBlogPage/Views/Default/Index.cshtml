@@ -1,0 +1,102 @@
+﻿@model IEnumerable<MyBlogPage.Entities.SitePage>
+@{
+    ViewBag.Title = "My Blog";
+}
+
+<div class="container p-0">
+    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+        <a href="" class="navbar-brand d-block d-lg-none">Navigation</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav m-auto">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu">
+                        <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                        <a href="single.html" class="dropdown-item">Blog Detail</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!-- Carousel Start -->
+<div class="container p-0">
+    <div id="blog-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="/content/img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="mb-3 text-white font-weight-bold">Lorem ipsum dolor sit amet</h2>
+                    <div class="d-flex text-white">
+                        <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                        <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                    <a href="" class="btn btn-lg btn-outline-light mt-4">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="/content/img/carousel-2.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="text-white font-weight-bold">Lorem ipsum dolor sit amet</h2>
+                    <div class="d-flex">
+                        <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                        <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                    <a href="" class="btn btn-lg btn-outline-light mt-4">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="/content/img/carousel-3.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="text-white font-weight-bold">Lorem ipsum dolor sit amet</h2>
+                    <div class="d-flex">
+                        <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                        <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                    <a href="" class="btn btn-lg btn-outline-light mt-4">Read More</a>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+
+<div class="container bg-white pt-5">
+    @foreach (var item in Model)
+    {
+        <div class="row blog-item px-3 pb-5">
+            <div class="col-md-5">
+                <img class="img-fluid mb-4 mb-md-0" src="@item.Photo" alt="@item.Title">
+            </div>
+            <div class="col-md-7">
+                <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">@item.Title</h3>
+                <div class="d-flex mb-3">
+                    <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> @item.CreateDate</small>
+                    <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                </div>
+                <p>
+                    @item.Description
+                </p>
+                <a class="btn btn-link p-0" href="/blog-@item.TitleUrl">Read More <i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+    }
+</div>
+
+
+
